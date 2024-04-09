@@ -133,7 +133,7 @@ job "simple-java" {
       }
       config {
         jar_path = "local/SimpleWebServer.jar"
-        jvm_options = "-agentpath:/opt/dynatrace/oneagent/agent/bin/1.287.136.20240403-173459/linux-x86-64/liboneagentloader.so=loglevelcon=none,datastorage=/var/lib/dynatrace/oneagent/datastorage,logdir=/var/log/dynatrace/oneagent"
+        jvm_options = ["-agentpath:/opt/dynatrace/oneagent/agent/bin/1.287.136.20240403-173459/linux-x86-64/liboneagentloader.so=loglevelcon=none,datastorage=/var/lib/dynatrace/oneagent/datastorage,logdir=/var/log/dynatrace/oneagent"]
       }
     }
   }
