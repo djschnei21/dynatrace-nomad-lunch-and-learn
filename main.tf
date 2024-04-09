@@ -137,7 +137,7 @@ job "simple-java" {
       }
       config {
         jar_path = "local/SimpleWebServer.jar"
-        java_options = [
+        jvm_options = [
           "-javaagent:local/opentelemetry-javaagent.jar",
           "-Dotel.resource.attributes=service.name=simple-java"
         ]
