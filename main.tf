@@ -125,6 +125,11 @@ job "simple-java" {
       }
     }
 
+    artifact {
+      source      = "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar"
+      destination = "local/"
+    }
+
 
     task "webserver-task" {
       driver = "java"
@@ -136,6 +141,10 @@ job "simple-java" {
         jar_path = "local/SimpleWebServer.jar"
         ipc_mode = "host"
         pid_mode = "host"
+        java_options = [
+          "-javaagent:local/opentelemetry-javaagent.jar",
+          "-Dotel.resource.attributes=service.name=simple-java \"
+        ]
       }
 
     }
