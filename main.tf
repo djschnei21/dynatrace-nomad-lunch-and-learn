@@ -90,6 +90,27 @@ job "java-monitor-method-1" {
                 memory = 256
             }
         }
+        task "deploy_oneagent" {
+            driver = "exec"
+
+            template {
+                destination = "local/oneagent.sh"
+                data = <<EOF
+                {{ with nomadVar "nomad/jobs/" }}
+                wget -O Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh "https://awf80637.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: {{ .dynatracetoken }}"
+                {{ end }}
+            }
+
+            config {
+                command = "/bin/sh"
+                args = ["-c", "cat local/oneagent.sh"]
+            }
+
+            resources {
+                cpu    = 500
+                memory = 256
+            }
+        }
     }
 }
 EOT
