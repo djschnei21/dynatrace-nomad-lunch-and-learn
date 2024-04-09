@@ -42,7 +42,7 @@ provider "nomad" {
 
 resource "nomad_job" "java_monitor_method_1" {
   jobspec = <<EOT
-job "java_monitor_method_1" {
+job "java-monitor-method-1" {
     datacenters = ["dc1"]
     type = "service"
     node_pool = "x86"
@@ -55,7 +55,7 @@ job "java_monitor_method_1" {
         }
         
         service {
-            name = "java_monitor_method_1"
+            name = "java-monitor-method-1"
             port = "http"
             address = "$${attr.unique.platform.aws.public-ipv4}"
 
@@ -97,7 +97,7 @@ EOT
 
 resource "nomad_job" "java_monitor_method_2" {
   jobspec = <<EOT
-job "java_monitor_method_2" {
+job "java-monitor-method-2" {
     datacenters = ["dc1"]
     type = "service"
     node_pool = "x86"
@@ -110,7 +110,7 @@ job "java_monitor_method_2" {
         }
         
         service {
-            name = "java_monitor_method_2"
+            name = "java-monitor-method-2"
             port = "http"
             address = "$${attr.unique.platform.aws.public-ipv4}"
 
@@ -152,7 +152,7 @@ EOT
 
 resource "nomad_job" "java_monitor_method_3" {
   jobspec = <<EOT
-job "java_monitor_method_3" {
+job "java-monitor-method-3" {
     datacenters = ["dc1"]
     type = "service"
     node_pool = "x86"
@@ -165,7 +165,7 @@ job "java_monitor_method_3" {
         }
         
         service {
-            name = "java_monitor_method_3"
+            name = "java-monitor-method-3"
             port = "http"
             address = "$${attr.unique.platform.aws.public-ipv4}"
 
