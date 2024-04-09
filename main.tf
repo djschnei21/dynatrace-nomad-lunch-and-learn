@@ -40,14 +40,14 @@ provider "nomad" {
   secret_id = data.vault_kv_secret_v2.bootstrap.data["SecretID"]
 }
 
-resource "nomad_job" "java_monitor_method_1" {
+resource "nomad_job" "tomcat" {
   jobspec = <<EOT
-job "java-monitor-method-1" {
+job "tomcat" {
     datacenters = ["dc1"]
     type = "service"
     node_pool = "x86"
 
-    group "hello_world_group" {
+    group "tomcat-group" {
         network {
             port "http" {
                 static = 8080
@@ -55,7 +55,7 @@ job "java-monitor-method-1" {
         }
         
         service {
-            name = "java-monitor-method-1"
+            name = "tomcat"
             port = "http"
             address = "$${attr.unique.platform.aws.public-ipv4}"
 
@@ -70,7 +70,7 @@ job "java-monitor-method-1" {
             }
         }
 
-        task "deploy_tomcat" {
+        task "tomcat-task" {
             driver = "exec"
 
             artifact {
@@ -91,6 +91,53 @@ job "java-monitor-method-1" {
             }
         }
     }
+}
+EOT
+}
+
+resource "nomad_job" "simple-java" {
+  jobspec = <<EOT
+job "simple-java" {
+  datacenters = ["dc1"]
+  node_pool = "x86"
+
+  group "web-server-group" {
+    count = 1
+    network {
+      port "http" {
+        static = 80
+      }
+    }
+    
+    service {
+      name = "web-server"
+      port = "http"
+      address = "$${attr.unique.platform.aws.public-ipv4}"
+
+      check {
+        name     = "http-check"
+        type     = "http"
+        path     = "/"
+        interval = "10s"
+        timeout  = "2s"
+        port     = "http"
+        method   = "GET"
+      }
+    }
+
+
+    task "web-server-task" {
+      driver = "java"
+      artifact {
+        source      = "http://www.jibble.org/files/SimpleWebServer.jar"
+        destination = "local/"
+      }
+      config {
+        jar_path = "local/SimpleWebServer.jar"
+      }
+
+    }
+  }
 }
 EOT
 }
