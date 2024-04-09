@@ -133,7 +133,6 @@ job "simple-java" {
       }
       config {
         jar_path = "local/SimpleWebServer.jar"
-        pid_mode = "private"
         ipc_mode = "host"
       }
     }
