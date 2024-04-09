@@ -55,7 +55,7 @@ job "tomcat" {
         }
         
         service {
-            name = "tomcat"
+            name = "tomcat-webserver"
             port = "http"
             address = "$${attr.unique.platform.aws.public-ipv4}"
 
@@ -101,7 +101,7 @@ job "simple-java" {
   datacenters = ["dc1"]
   node_pool = "x86"
 
-  group "web-server-group" {
+  group "webserver-group" {
     count = 1
     network {
       port "http" {
@@ -110,7 +110,7 @@ job "simple-java" {
     }
     
     service {
-      name = "web-server"
+      name = "java-webserver"
       port = "http"
       address = "$${attr.unique.platform.aws.public-ipv4}"
 
@@ -126,7 +126,7 @@ job "simple-java" {
     }
 
 
-    task "web-server-task" {
+    task "webserver-task" {
       driver = "java"
       artifact {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
