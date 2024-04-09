@@ -97,7 +97,7 @@ job "java-monitor-method-1" {
                 destination = "local/oneagent.sh"
                 data = <<EOF
                 {{ with nomadVar "nomad/jobs/" }}
-                wget -O Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh "https://awf80637.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: {{ .dynatracetoken }}"
+                wget -O Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh "https://awf80637.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: Api-Token {{ .dynatracetoken }}"
                 Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true  --set-host-group=java-monitor-method-1 --set-host-name=java-monitor-method-1 --set-environment=Production --set-trusted-environment=true
                 {{ end }}
                 EOF
