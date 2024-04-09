@@ -12,6 +12,11 @@ terraform {
   }
 }
 
+variable "tfc_organization" {
+  default = ""
+  type = string
+}
+
 data "terraform_remote_state" "nomad_cluster" {
   backend = "remote"
 
