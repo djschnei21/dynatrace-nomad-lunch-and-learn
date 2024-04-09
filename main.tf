@@ -125,16 +125,14 @@ job "simple-java" {
       }
     }
 
-    artifact {
-      source      = "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar"
-      destination = "local/"
-    }
-
-
     task "webserver-task" {
       driver = "java"
       artifact {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
+        destination = "local/"
+      }
+      artifact {
+        source      = "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar"
         destination = "local/"
       }
       config {
