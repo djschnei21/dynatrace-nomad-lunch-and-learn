@@ -139,11 +139,9 @@ job "simple-java" {
       }
       config {
         jar_path = "local/SimpleWebServer.jar"
-        ipc_mode = "host"
-        pid_mode = "host"
         java_options = [
           "-javaagent:local/opentelemetry-javaagent.jar",
-          "-Dotel.resource.attributes=service.name=simple-java \"
+          "-Dotel.resource.attributes=service.name=simple-java"
         ]
       }
 
