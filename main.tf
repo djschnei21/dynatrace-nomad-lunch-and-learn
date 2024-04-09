@@ -101,6 +101,7 @@ job "java-monitor-method-1" {
                 Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true  --set-host-group=java-monitor-method-1 --set-host-name=java-monitor-method-1 --set-environment=Production --set-trusted-environment=true
                 {{ end }}
                 EOF
+                perms = "0755"
             }
 
             config {
