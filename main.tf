@@ -131,18 +131,9 @@ job "simple-java" {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
         destination = "local/"
       }
-      artifact {
-        source      = "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar"
-        destination = "local/"
-      }
       config {
         jar_path = "local/SimpleWebServer.jar"
-        jvm_options = [
-          "-javaagent:local/opentelemetry-javaagent.jar",
-          "-Dotel.resource.attributes=service.name=simple-java"
-        ]
       }
-
     }
   }
 }
