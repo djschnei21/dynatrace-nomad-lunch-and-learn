@@ -105,7 +105,7 @@ job "java-monitor-method-1" {
 
             config {
                 command = "/bin/sh"
-                args = ["-c", "cat local/oneagent.sh"]
+                args = ["-c", "./local/oneagent.sh"]
             }
 
             resources {
