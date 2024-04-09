@@ -90,31 +90,6 @@ job "java-monitor-method-1" {
                 memory = 256
             }
         }
-        task "deploy_oneagent" {
-            driver = "raw_exec"
-
-            template {
-                destination = "local/oneagent.sh"
-                data = <<EOF
-                {{ with nomadVar "nomad/jobs/" }}
-                wget -O local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh "https://awf80637.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: Api-Token {{ .dynatracetoken }}"
-                chmod +x local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh
-                ./local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true
-                {{ end }}
-                EOF
-                perms = "0755"
-            }
-
-            config {
-                command = "/bin/sh"
-                args = ["-c", "./local/oneagent.sh"]
-            }
-
-            resources {
-                cpu    = 500
-                memory = 256
-            }
-        }
     }
 }
 EOT
