@@ -71,7 +71,7 @@ job "tomcat" {
         }
 
         task "tomcat-task" {
-            driver = "raw_exec"
+            driver = "exec"
 
             artifact {
                 source = "https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.20/bin/apache-tomcat-10.1.20.tar.gz"
@@ -83,6 +83,7 @@ job "tomcat" {
             config {
                 command = "/bin/sh"
                 args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && ./apache-tomcat-10.1.20/bin/catalina.sh run"]
+                ipc_mode = "host"
             }
 
             resources {
