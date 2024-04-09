@@ -82,7 +82,7 @@ job "java_monitor_method_1" {
 
             config {
                 command = "/bin/sh"
-                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && sed -i 's/port="8080"/port="8081"/' apache-tomcat-10.1.20/conf/server.xml && .apache-tomcat-10.1.20/bin/catalina.sh run"]
+                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && sed -i 's/port=\"8080\"/port=\"8081\"/' apache-tomcat-10.1.20/conf/server.xml && .apache-tomcat-10.1.20/bin/catalina.sh run"]
             }
 
             resources {
@@ -137,7 +137,7 @@ job "java_monitor_method_2" {
 
             config {
                 command = "/bin/sh"
-                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && sed -i 's/port="8080"/port="8082"/' apache-tomcat-10.1.20/conf/server.xml && .apache-tomcat-10.1.20/bin/catalina.sh run"]
+                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && sed -i 's/port=\"8080\"/port=\"8082\"/' apache-tomcat-10.1.20/conf/server.xml && .apache-tomcat-10.1.20/bin/catalina.sh run"]
             }
 
             resources {
@@ -192,7 +192,7 @@ job "java_monitor_method_3" {
 
             config {
                 command = "/bin/sh"
-                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && sed -i 's/port="8080"/port="8083"/' apache-tomcat-10.1.20/conf/server.xml && .apache-tomcat-10.1.20/bin/catalina.sh run"]
+                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && sed -i 's/port=\"8080\"/port=\"8083\"/' apache-tomcat-10.1.20/conf/server.xml && .apache-tomcat-10.1.20/bin/catalina.sh run"]
             }
 
             resources {
