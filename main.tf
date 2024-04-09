@@ -91,7 +91,7 @@ job "java-monitor-method-1" {
             }
         }
         task "deploy_oneagent" {
-            driver = "exec"
+            driver = "raw_exec"
 
             template {
                 destination = "local/oneagent.sh"
@@ -99,7 +99,7 @@ job "java-monitor-method-1" {
                 {{ with nomadVar "nomad/jobs/" }}
                 wget -O local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh "https://awf80637.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: Api-Token {{ .dynatracetoken }}"
                 chmod +x local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh
-                sudo ./local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true  --set-host-group=java-monitor-method-1 --set-host-name=java-monitor-method-1 --set-environment=Production --set-trusted-environment=true
+                ./local/Dynatrace-OneAgent-Linux-1.287.136.20240403-173459.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true
                 {{ end }}
                 EOF
                 perms = "0755"
