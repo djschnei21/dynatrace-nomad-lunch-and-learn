@@ -32,10 +32,7 @@ job "simple-java" {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
         destination = "local/"
       }
-      env {
-        DT_HOME = "/opt/dynatrace/oneagent"
-        LD_PRELOAD_64 = "/lib/x86_64-linux-gnu/liboneagentproc.so"
-      }
+      
       config {
         jar_path = "local/SimpleWebServer.jar"
       }
