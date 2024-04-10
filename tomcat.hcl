@@ -36,15 +36,10 @@ job "tomcat" {
                 }
             }
 
-            env {
-                JAVA_OPTS = "-agentpath:/opt/dynatrace/oneagent/agent/bin/1.287.136.20240403-173459/linux-x86-64/liboneagentloader.so=loglevelcon=none,datastorage=/var/lib/dynatrace/oneagent/datastorage,logdir=/var/log/dynatrace/oneagent"
-            }
-
             config {
                 command = "/bin/sh"
                 args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && ./apache-tomcat-10.1.20/bin/catalina.sh run"]
                 ipc_mode = "host"
-                pid_mode = "host"
             }
 
             resources {
