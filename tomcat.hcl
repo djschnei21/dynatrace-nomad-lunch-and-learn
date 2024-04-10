@@ -36,10 +36,10 @@ job "tomcat" {
                 }
             }
 
-            // env {
-            //     DT_HOME = "/opt/dynatrace/oneagent"
-            //     LD_PRELOAD_64 = "/opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so"
-            // }
+            env {
+                DT_HOME = "/opt/dynatrace/oneagent"
+                // LD_PRELOAD_64 = "/opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so"
+            }
 
             config {
                 command = "/bin/sh"
