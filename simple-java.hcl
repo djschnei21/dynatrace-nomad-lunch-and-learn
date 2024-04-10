@@ -33,9 +33,9 @@ job "simple-java" {
         destination = "local/"
       }
       env {
-        DT_HOME = "/opt/dynatrace/agent"
-        LD_PRELOAD_64 = "/opt/dynatrace/agent/lib64/liboneagentproc.so"
-        LD_PRELOAD = "/opt/dynatrace/agent/lib/liboneagentproc.so"
+        DT_HOME = "/opt/dynatrace/oneagent"
+        LD_PRELOAD_64 = "/opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so"
+        LD_PRELOAD = "/opt/dynatrace/oneagent/agent/lib/liboneagentproc.so"
       }
       config {
         jar_path = "local/SimpleWebServer.jar"
