@@ -37,6 +37,7 @@ job "tomcat" {
             }
 
             env {
+                DT_HOME = "/opt/dynatrace/agent"
                 LD_PRELOAD_64 = "/opt/dynatrace/agent/lib64/liboneagentproc.so"
                 LD_PRELOAD = "/opt/dynatrace/agent/lib/liboneagentproc.so"
             }
