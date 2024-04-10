@@ -40,6 +40,7 @@ job "tomcat" {
                 command = "/bin/sh"
                 args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && ./apache-tomcat-10.1.20/bin/catalina.sh run"]
                 ipc_mode = "host"
+                pid_mode = "host"
             }
 
             resources {
