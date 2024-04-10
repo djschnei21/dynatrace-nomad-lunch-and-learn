@@ -35,6 +35,7 @@ job "simple-java" {
       config {
         jar_path = "local/SimpleWebServer.jar"
         ipc_mode = "host"
+        pid_mode = "host"
       }
     }
   }
