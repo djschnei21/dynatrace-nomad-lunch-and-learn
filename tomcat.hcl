@@ -38,12 +38,12 @@ job "tomcat" {
 
             env {
                 DT_HOME = "/opt/dynatrace/oneagent"
-                // LD_PRELOAD_64 = "/opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so"
+                LD_PRELOAD_64 = "/opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so"
             }
 
             config {
                 command = "/bin/sh"
-                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && . /opt/dynatrace/oneagent/dynatrace-agent64.sh && ./apache-tomcat-10.1.20/bin/catalina.sh run"]
+                args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && ./apache-tomcat-10.1.20/bin/catalina.sh run"]
             }
 
             resources {
