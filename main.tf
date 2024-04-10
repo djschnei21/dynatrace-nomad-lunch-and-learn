@@ -41,9 +41,9 @@ provider "nomad" {
 }
 
 resource "nomad_job" "tomcat" {
-  jobspec = file("${path.module}/tomcat.nomad")
+  jobspec = file("${path.module}/tomcat.hcl")
 }
 
 resource "nomad_job" "simple-java" {
-  jobspec = file("${path.module}/simple-java.nomad")
+  jobspec = file("${path.module}/simple-java.hcl")
 }
