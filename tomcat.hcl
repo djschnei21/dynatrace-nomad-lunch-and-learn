@@ -36,11 +36,14 @@ job "tomcat" {
                 }
             }
 
+            env {
+                LD_PRELOAD_64 = "/opt/dynatrace_paas/agent/lib64/liboneagentproc.so"
+                LD_PRELOAD = "/opt/dynatrace_paas/agent/lib/liboneagentproc.so"
+            }
+
             config {
                 command = "/bin/sh"
                 args = ["-c", "cd local/ && tar xzf apache-tomcat-10.1.20.tar.gz && ./apache-tomcat-10.1.20/bin/catalina.sh run"]
-                #ipc_mode = "host"
-                #pid_mode = "host"
             }
 
             resources {
