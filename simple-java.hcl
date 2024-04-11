@@ -37,8 +37,6 @@ job "simple-java" {
       config {
         command = "/bin/sh"
         args = ["-c", "LD_PRELOAD=/lib/x86_64-linux-gnu/liboneagentproc.so java -jar local/SimpleWebServer.jar"]
-        pid_mode = "host"
-        ipc_mode = "host"
       }
     }
   }
