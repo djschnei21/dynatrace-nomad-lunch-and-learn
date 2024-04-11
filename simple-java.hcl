@@ -34,18 +34,9 @@ job "simple-java" {
         destination = "local/"
       }
 
-      env {
-        LD_PRELOAD = "/lib/x86_64-linux-gnu/liboneagentproc.so"
-      }
-
       config {
         command = "/bin/sh"
-        args = ["-c", "cd local/ && java -jar SimpleWebServer.jar"]
-      }
-
-      resources {
-        cpu    = 100
-        memory = 100
+        args = ["-c", "LD_PRELOAD=/lib/x86_64-linux-gnu/liboneagentproc.so java -jar local/SimpleWebServer.jar"]
       }
     }
   }
