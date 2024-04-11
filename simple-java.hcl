@@ -33,6 +33,7 @@ job "simple-java" {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
         destination = "local/"
       }
+      
       env {
         LD_PRELOAD = "/lib/x86_64-linux-gnu/liboneagentproc.so"
       }
