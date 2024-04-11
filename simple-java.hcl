@@ -40,9 +40,6 @@ job "simple-java" {
 
       config {
         jar_path = "local/SimpleWebServer.jar"
-        ipc_mode = "host"
-        pid_mode = "host"
-        jvm_options = ["-agentpath:/lib/x86_64-linux-gnu/liboneagentproc.so"]
       }
     }
   }
