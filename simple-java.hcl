@@ -27,19 +27,21 @@ job "simple-java" {
     }
 
     task "webserver-task" {
-      driver = "java"
+      driver = "raw_exec"
 
       artifact {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
         destination = "local/"
       }
 
-      env {
-        LD_PRELOAD_64 = "/lib/x86_64-linux-gnu/liboneagentproc.so"
+      config {
+        command = "/bin/sh"
+        args = ["-c", "cd local/ && java -jar SimpleWebServer.jar"]
       }
 
-      config {
-        jar_path = "local/SimpleWebServer.jar"
+      resources {
+        cpu    = 100
+        memory = 100
       }
     }
   }
