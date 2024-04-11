@@ -39,6 +39,7 @@ job "simple-java" {
         args = ["-c", "cd local/ && java -jar SimpleWebServer.jar"]
       }
 
+
       resources {
         cpu    = 100
         memory = 100
