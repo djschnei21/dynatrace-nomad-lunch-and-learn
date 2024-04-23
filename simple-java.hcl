@@ -27,7 +27,7 @@ job "simple-java" {
     }
 
     task "webserver-task" {
-      driver = "exec"
+      driver = "raw_exec"
 
       artifact {
         source      = "http://www.jibble.org/files/SimpleWebServer.jar"
@@ -36,7 +36,7 @@ job "simple-java" {
 
       config {
         command = "/bin/sh"
-        args = ["-c", "LD_PRELOAD=/lib/x86_64-linux-gnu/liboneagentproc.so java -jar local/SimpleWebServer.jar"]
+        args = ["-c", "java -jar local/SimpleWebServer.jar"]
       }
     }
   }
